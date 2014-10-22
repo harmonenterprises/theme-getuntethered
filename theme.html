@@ -16,7 +16,7 @@
     {{ header_meta }}
 
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="{{ static('themes/untethered/css/untethered.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ assets('css/style.css')}}">
 
     <!--[if IE]>
       <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -74,7 +74,7 @@
     <div class="feature">
       <div class="container">
         <div class="book">
-          <img src="{{ static('themes/untethered/images/book.png') }}" />
+          <img src="{{ assets('images/book.png') }}" />
         </div>
         <div class="text">
           <h1>Get Untethered. Break free here!</h1>
@@ -276,9 +276,9 @@
   <script type="text/javascript">
     (function(d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        g.src = "{{ static('themes/untethered/js/untethered.min.js')}}";
+        g.src = "{{ assets('js/untethered.min.js')}}";
         s.parentNode.insertBefore(g, s);
-    }(document, 'script'));    
+    }(document, 'script'));
   </script>    
 
   </body>
