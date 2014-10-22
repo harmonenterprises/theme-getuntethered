@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        {% if is_login %}Login
+        {% elif is_home %}{{ site.author }}
+        {% elif is_tag %}{{ tag }}
+        {% elif post.type == 'post' %}{{ post.title }}
+        {% elif post.type == 'link' %}{{ link.title }}
+        {% elif post.type == 'page' %}{{ page.title }}
+        {% endif %} 
+        | {{ site.name }}
+    </title>
+
+    {{ header_meta }}
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{{ static('themes/untethered/css/untethered.css')}}">
+
+    <!--[if IE]>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- standard google analytics -->
+    {% if site.analytics %}
+    <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ site.analytics }}']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    {% endif %}    
+    
+    <!-- fonts.com asynchronous -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          g.src = "http://fast.fonts.net/jsapi/f2248434-a050-47f5-ade0-4c47298f3091.js";
+          s.parentNode.insertBefore(g, s);
+      }(document, 'script'));    
+    </script>
+    <script type='text/javascript' src='http://assets.sendowl.com/javascripts/cart.min.js'></script>
+  </head>
+  <body{% if is_post or is_tag or is_page %} class="short-header"{% endif %}>
+  
+    <header>
+      <div class="container">
+        <div class="left">
+          <h1><a href="{{ site.base_url }}">{{ site.name }}</a></h1>
+        </div>
+        <div class="right">
+          <nav>
+            <ul>
+              <li><a href="{{ site.base_url }}">Home</a></li>
+              <li><a href="{{ site.base_url }}/tag/blog">Blog</a></li>              
+              {% if pages %}          
+                {% for page in pages %}
+                <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+      
+  {% if is_home %}      
+      
+    <div class="feature">
+      <div class="container">
+        <div class="book">
+          <img src="{{ static('themes/untethered/images/book.png') }}" />
+        </div>
+        <div class="text">
+          <h1>Get Untethered. Break free here!</h1>
+          <p>Untethered is your gateway to freedom. Freedom from tiny scraps of paper, lost lists and chains to the office. Learn to work from ANYwhere with Evernote. This book provides the tools you need for virtual workflows. Written by two Evernote Ambassadors and entrepreneurs. <a href="http://getuntethered.com/about">Learn more.</a></p>
+
+<a class="btn" href='http://getuntethered.com/purchase' rel='nofollow'>
+<span class="btn-inset">$14.99</span>
+<span>Buy PDF/ePub/mobi</span></a>
+        </div>
+      </div>
+    </div>
+      
+    <div class="testimonials">
+      <div class="container">
+        <ul>
+           <li>
+            <img src="{{ site.avatar }}" class="avatar" />
+            <p>This book took my Evernote usage to the next level. It's helping me to actually put a system in place that I can use in my everyday business. It's my new Evernote bible.<span class="author"><strong>Carolyn Lowe</strong> Independent Consultant</span></p>
+          </li>
+        </ul>
+        <a href="#" class="prev"><span class="ss-icon ss-pika">previous</span></a>
+        <a href="#" class="next"><span class="ss-icon ss-pika">next</span></a>
+      </div>
+    </div>
+
+    <div class="learning">
+      <div class="container">        
+        <h2>You'll Learn To:</h2>
+        <ul>
+          <li>
+            <h3><span class="ss-icon">checkclipboard</span> Work From Anywhere</h3>
+            <p>Untether yourself from the office with cloud based software.</p>
+          </li>
+          <li>
+            <h3><span class="ss-icon">piechartthirds</span> Increase productivity</h3>
+            <p>Spend less time organizing and more time with your clients.</p>
+          </li>
+          <li>
+            <h3><span class="ss-icon">coffee</span> Organize your life</h3>
+            <p>Manage your personal and work life, all in one place.</p>
+          </li>
+          <li>
+            <h3><span class="ss-icon">lightning</span> Master Evernote</h3>
+            <p>Become a power user with case studies from two Evernote Ambassadors.</p>
+          </li>                              
+        </ul>
+      </div>
+    </div>
+      
+    <div class="join-facebook">
+      <div class="container">
+        <div class="left">
+          <h3>Join Our Facebook Group</h3>
+          <p>Meet other Untethered workers, discuss our tips and tricks, and keep powering up your paperless, online business in our Facebook Group.</p>
+        </div>
+        <div class="right">
+          <a class="btn join-facebook-btn" href="http://facebook.com/groups/GetUntethered"><span class="btn-inset"><span class="ss-icon ss-social">facebook</span></span><span>Join The Group</span></a>
+        </div>
+      </div>
+    </div>
+
+  {% elif is_tag %}
+
+    <div class="post-list">
+
+      {% if posts %}
+        <div class="posts">
+          {% for post in posts %}
+          <div class="item">
+              <h3><a href="{{ post.permalink }}">{{ post.title }}</a> {{ theme.social.like_count }}</h3>
+              <div class="post-content">
+                {{ post.content }}
+              </div>
+              <a class="post-author">
+                <img src="{{ site.avatar }}" />
+                <p>
+                  <span class="post-author-name">{{ site.author }}</span>
+                  <span class="post-date">on {{ post.created_at|format_date }}</span>
+                </p>
+              </a>
+          </div>
+          {% endfor %}
+        </div>
+
+        {% if pagination %}
+        <div class="pagination">
+          {% if pagination.prev %}<a href="{{ pagination.prev }}" class="prev">&laquo; Previous Page</a>{% endif %}
+          {% if pagination.next %}<a href="{{ pagination.next }}" class="next">Next Page &raquo;</a>{% endif %}
+        </div>
+        {% endif %}
+      {% endif %}
+      
+    </div><!-- /post-list -->
+
+  {% elif post.type== 'post' %}
+      
+    <div class="post">
+
+      <div class="post-content">
+        <h1>{{ post.title }} {{ theme.social.like_count }}</h1>          
+        {{ post.content }}
+      </div>
+      <div class="post-footer">
+        <a class="post-author">
+          <img src="{{ site.avatar }}" />
+          <p>
+              <span class="post-author-name">{{ site.author }}</span>
+              <span class="post-date">Posted on {{ post.created_at|format_date }}</span>
+          </p>
+        </a>
+        <ul class="post-options">
+          <li>{{ theme.social.share }}</li>
+          <li>{{ theme.social.follow }}</li>
+          <li>{{ theme.social.like }}</li>
+        </ul>
+      </div>
+
+      <div class="pagination">
+        <a href="javascript:history.go(-1);" class="prev">&laquo; Back To List</a>
+      </div>
+
+      {% if site.disqus %}
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = '{{ site.disqus }}';
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      {% endif %}
+      
+    </div><!-- /post -->
+
+  {% elif post.type == 'link' %}
+      
+    <div class="post">      
+
+      <h1>{{ link.title }} {{ theme.social.like_count }}</h1>
+      <div class="post-content">
+        {{ link.content }}
+        <p class="link-url"><i class="icon-share"></i> <a href="{{ link.url }}">{{ link.url }}</a></p>
+      </div>
+      <div class="post-footer">
+        <a class="post-author">
+          <img src="{{ site.avatar }}" />
+          <p>
+              <span class="post-author-name">{{ site.author }}</span>
+              <span class="post-date">on {{ post.created_at|format_date }}</span>
+          </p>
+        </a>
+        <ul class="post-options">
+          <li>{{ theme.social.share }}</li>
+          <li>{{ theme.social.follow }}</li>
+          <li>{{ theme.social.like }}</li>
+        </ul>
+      </div>
+      <div class="pagination">
+        <a href="javascript:history.go(-1)" class="prev">&laquo; Back To List</a>
+      </div>
+      
+    </div><!-- /post -->
+
+  {% elif post.type == 'page' %}
+      
+    <div class="post">      
+
+      <h1>{{ page.title }}</h1>
+      <div class="post-content">
+        {{ page.content }}
+      </div>
+      <div class="pagination">
+        <a href="javascript:history.go(-1)" class="prev">&laquo; Back To List</a>
+      </div>
+    
+    </div><!-- /post -->
+
+  {% endif %}
+
+  <div class="container">
+    <footer>
+      <div class="left">
+        <p class="copy">&copy; 2014 Get Untethered. <a href="mailto:info@getuntethered.com">Email Us</a></p>
+      </div>
+      <div class="right">
+        <p><a href="http://postach.io" target="_blank"><i class="po-nut-outline">&nbsp;</i></a></p>
+      </div>
+    </footer>
+  </div>
+
+  {{ footer_meta }}
+
+  <!-- theme js asynchronous -->
+  <script type="text/javascript">
+    (function(d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = "{{ static('themes/untethered/js/untethered.min.js')}}";
+        s.parentNode.insertBefore(g, s);
+    }(document, 'script'));    
+  </script>    
+
+  </body>
+</html>

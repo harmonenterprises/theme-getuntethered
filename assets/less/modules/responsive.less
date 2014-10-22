@@ -1,0 +1,103 @@
+/* Less than 960px width */
+@media screen and (max-width: 960px) {
+    .learning {
+        ul {
+            li {
+                clear: both;
+                float: none;
+                margin: 0 auto;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .feature {
+        .text {
+            h1 {
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.4rem;
+            }            
+        }
+    }
+    .testimonials {
+        .container {
+            padding-left: 0;
+        }
+        .prev {
+            left: -40px;
+            margin-left: 0;
+        }
+    }
+}
+
+/* Less than 860px width */
+@media screen and (max-width: 860px) {
+    .btn {
+        .btn-inset {
+            display: none;
+        }    
+    }
+}
+
+/* Less than 680px width */
+@media screen and (max-width: 680px) {
+    @gutter: 25px;
+    .join-facebook {
+        text-align: left;
+        .left { 
+            clear: both;
+            float: none;
+            width: 100%;
+        }
+        .right {
+            padding-top: @gutter;
+            clear: both;
+            float: none;
+            width: 100%;
+            text-align: left;
+            .btn {
+                text-align: left;
+            }
+        }    
+    }
+    .feature {
+        height: auto;
+        padding-bottom: @gutter;
+        .container {
+            padding: 0;
+        }
+        .book {
+            text-align: center;
+            position: relative;
+            clear: both;
+            display: block;
+            margin: 0;
+            padding: @gutter 0 @gutter 0;
+            top: 0;
+            left: 0;
+            img {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .text {
+            padding: 0;
+            margin: 0;
+            clear: both;
+            display: block;
+            float: none;
+        }
+    }
+}
+
+/* Less than 479px width */
+@media screen and (max-width: 479px) {
+
+}

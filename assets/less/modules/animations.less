@@ -1,0 +1,17 @@
+.rotate {
+    .animation(rotation, 2s, 1, ease-in-out);
+}
+
+.fade {
+    .animation(fade, 2s, 1, ease-in);    
+}
+
+@-webkit-keyframes rotation { to { -webkit-transform: rotate(360deg); } }
+@-moz-keyframes rotation { to { -moz-transform: rotate(360deg); } }
+@-o-keyframes rotation { to { -o-transform: rotate(360deg); } }
+@keyframes rotation { to { transform: rotate(360deg); } }
+
+@-webkit-keyframes fade { from { .opacity(0); } to { .opacity(1); } }
+@-moz-keyframes fade { from { .opacity(0); } to { .opacity(1); } }
+@-o-keyframes fade { from { .opacity(0); } to { .opacity(1); } }
+@keyframes fade { from { .opacity(0); } to { .opacity(1); } }

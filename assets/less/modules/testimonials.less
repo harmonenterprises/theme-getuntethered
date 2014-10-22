@@ -1,0 +1,66 @@
+.testimonials {
+    position: relative;
+    background-color: #f4f4f4;
+    .container {
+        position: relative;
+        padding: @gutter 0 @gutter 40%;
+    }
+    ul {
+        display: block;
+        position: relative;
+        .clearfix();        
+        li {
+            display: block;
+            position: relative;
+            .clearfix();
+        }
+    }
+    .avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @size: 60px;
+        display: inline-block;
+        width: @size;
+        height: @size;
+        .rounded(50%);
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        padding: 0 0 0 80px;
+        margin: 0;
+        .author {
+            text-transform: uppercase;
+            display: block;
+            color: @lighttext;
+            padding-top: 20px;
+            font-family: 'BT Futura W01', helvetica, sans-serif;
+            font-size: 0.85rem;
+        }
+    }
+    .prev {
+        display: none;
+        position: absolute;
+        top: 75px;
+        margin-top: -5px;
+        margin-left: -50px;
+        left: 50%;
+        color: @lighttext;
+        &:hover {
+            color: @jade;
+        }        
+    }
+    .next {
+        display: none;
+        position: absolute;
+        top: 75px;
+        margin-top: -5px;
+        margin-right: -35px;
+        right: 0;
+        color: @lighttext;
+        &:hover {
+            color: @jade;
+        }
+    }
+}

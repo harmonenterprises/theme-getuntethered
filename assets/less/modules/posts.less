@@ -1,0 +1,97 @@
+.posts {
+    padding: 0;
+    div.item {
+        display: block;
+        clear: both;
+        padding: 0 0 @gutter*1.25 0;
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+        .clearfix();
+        p.post-preview {
+            padding-bottom: 15px;
+        }
+        .post-content {
+            .content(@gutter); /* find this in _assets/less/elements.less */
+        }
+        .post-author {
+            padding-top: @gutter/2;
+            width: 100%;
+            clear: both;
+            float: none;
+            img {
+                @size: 30px;
+                width: @size;
+                height: @size;
+            }
+            p {
+                padding: 4px 0 0 10px;
+                .medium();
+                span {
+                    display: inline;
+                }
+            }
+        }
+        .dots {
+            display: block;
+            padding-top: @gutter;
+            clear: both;
+            text-align: center;
+            span {
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                .rounded(50%);
+                background-color: @hr;
+                &:nth-of-type(2) {
+                    margin: 0 13px 0 13px;
+                }
+            }
+        }
+        &:last-of-type {
+            .dots {
+                display: none;
+            }
+        }
+    }
+    h3 {
+        position: relative;
+        padding: 0 0 @gutter/4 0;
+        margin: 0;
+        font-size: 2.25rem;
+        .light();
+        color: @text;
+        a {
+            color: @text;
+            &:hover {
+                color: @jade;
+            }
+            &.like {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 0.85rem;
+                color: @lighttext;
+                span {
+                    color: @lighttext;
+                }
+                &:hover {
+                    color: @jade;
+                    span {
+                        color: @jade;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.post-list {
+    position: relative;
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    width: 75%;
+    padding: @gutter*2 0 @gutter*2 0;
+    .clearfix();    
+}

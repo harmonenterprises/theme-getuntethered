@@ -1,0 +1,38 @@
+.feature {
+    position: relative;
+    display: block;
+    height: 570px;
+    clear: both;
+    .container {
+        padding: 0 0 0 40%;
+    }
+}
+
+.book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    img {
+        position: absolute;
+        top: 75px;
+        left: -30%;
+        width: 110%;
+        z-index: 10000;
+    }
+}
+
+.text {
+    padding-top: 125px;
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+    p {
+        padding: @gutter/2 0 @gutter 0;
+        margin: 0;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+}
