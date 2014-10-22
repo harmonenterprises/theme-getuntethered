@@ -81,8 +81,7 @@
           <p>Untethered is your gateway to freedom. Freedom from tiny scraps of paper, lost lists and chains to the office. Learn to work from ANYwhere with Evernote. This book provides the tools you need for virtual workflows. Written by two Evernote Ambassadors and entrepreneurs. <a href="http://getuntethered.com/about">Learn more.</a></p>
 
 <a class="btn" href='http://getuntethered.com/purchase' rel='nofollow'>
-<span class="btn-inset">$14.99</span>
-<span>Buy PDF/ePub/mobi</span></a>
+<span>Buy Now</span></a>
         </div>
       </div>
     </div>
@@ -248,9 +247,38 @@
     <div class="post">      
 
       <h1>{{ page.title }}</h1>
+      
+      {% if page.title == 'Purchase' %}
       <div class="post-content">
         {{ page.content }}
       </div>
+      {% else %}
+      <div class="post-content">
+        {{ page.content }}
+        <table class="purchase-table">
+          <tr>
+            <td>PDF eBook</td>
+            <td>$14.99</td>
+            <td><a class="btn" href="http://transactions.sendowl.com/products/59095/02533F41/add_to_cart">Purchase</a></td>
+          </tr>
+          <tr>
+            <td>ePub eBook</td>
+            <td>$14.99</td>
+            <td><a class="btn" href="http://transactions.sendowl.com/products/59096/162EB5BC/add_to_cart">Purchase</a></td>
+          </tr>
+          <tr>
+            <td>Mobi eBook</td>
+            <td>$14.99</td>
+            <td><a class="btn" href="http://transactions.sendowl.com/products/65749/47AE6CB7/add_to_cart">Purchase</a></td>
+          </tr>
+          <tr>
+            <td>Print</td>
+            <td>$19.99 + $3.99 S/H</td>
+            <td><a class="btn" href="https://sowl.co/PBHCG">Purchase</a></td>
+          </tr>                              
+        </table>
+      </div>      
+      {% endif %}
       <div class="pagination">
         <a href="javascript:history.go(-1)" class="prev">&laquo; Back To List</a>
       </div>
