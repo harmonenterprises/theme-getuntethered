@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>
         {% if is_login %}Login
-        {% elif is_home %}{{ site.author }}
+        {% elif is_home %}{{ site.name }}
         {% elif is_tag %}{{ tag }}
         {% elif post.type == 'post' %}{{ post.title }}
         {% elif post.type == 'link' %}{{ link.title }}
