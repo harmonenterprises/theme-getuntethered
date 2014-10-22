@@ -3,7 +3,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(http://postach.io/static/themes/_assets/symbolset/ss-pika.css);
 @import url(http://postach.io/static/themes/_assets/symbolset/ss-steedicons.css);
-
 /*---------------------------------------------------
     LESS Elements 0.9.1
   ---------------------------------------------------
@@ -1180,3 +1179,15 @@ footer .rainbow {
   }
 }
 /* Less than 479px width */
+table.purchase-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table.purchase-table tr td {
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 15px 0 15px 0;
+}
+table.purchase-table tr td:last-of-type {
+  text-align: right;
+}
